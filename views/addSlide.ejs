@@ -1,0 +1,94 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EpicStore - add slider</title>
+    <style>
+      a {
+        color: white;
+      }
+      body {
+        background: #222;
+        color: white;
+      }
+      form {
+        position: relative;
+        padding: 50px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin-left: -250px;
+        left: 50%;
+        border: solid #111 2px;
+        width: 500px;
+        height: auto;
+      }
+      label {
+        padding: 10px 0;
+        font-size: 18px;
+      }
+      input {
+        display: block;
+        padding: 10px;
+        font-size: 18px;
+      }
+      .uppercase {
+      }
+      textarea {
+        width: 100%;
+        height: 300px;
+        padding: 10px;
+        font-size: 18px;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+        background: lightgreen;
+        color: #111;
+        margin-top: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      previewFile = () => {
+        const preview = document.querySelector(".img");
+        const file = document.querySelector("input[type=file]").files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener(
+          "load",
+          () => {
+            preview.src = reader.result;
+          },
+          false
+        );
+
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <%- include("nav") -%> <%= typeof msg != 'undefined' ? msg : '' %>
+    <form method="POST" enctype="multipart/form-data">
+      <h1>Store Slider Information</h1>
+      <hr />
+      <label for="name">Name:</label>
+      <input type="text" name="name" />
+
+      <label for="desc">Description:</label>
+      <textarea type="text" name="desc"></textarea>
+      <label for="status">Status:</label>
+      <input type="text" name="status" placeholder="ex: AVAILABLE NOW ..." />
+      <label for="linkName">Bottom Link Name:</label>
+      <input type="text" name="linkName" maxlength="15" />
+      <label for="linkURL">Link url:</label>
+      <input type="url" name="linkURL" />
+      <label>Main page slider image</label>
+      <input type="file" name="StoreSliderImg" />
+
+      <button type="submit">Add Slide</button>
+    </form>
+  </body>
+</html>

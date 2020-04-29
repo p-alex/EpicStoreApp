@@ -1,0 +1,116 @@
+.nav__logo {
+  width: 32px;
+  margin-left: 15px;
+  filter: brightness(1.5);
+}
+.nav {
+  background: var(--tertiary-background);
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  height: var(--main-nav-height);
+}
+.nav__left {
+  display: flex;
+  align-items: center;
+}
+.nav__left__links {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.nav__left__links:first-of-type {
+  margin-left: 15px;
+}
+.nav__left__links ul {
+  display: flex;
+  align-items: center;
+}
+.nav__left__links li a {
+  border-bottom: solid transparent 6px;
+  display: block;
+  padding: 15px 15px;
+  color: var(--special-color);
+  transition: border 100ms ease-in-out;
+  font-size: 12px;
+  position: relative;
+  top: 2px;
+}
+.nav__left__links li {
+  display: flex;
+  align-items: center;
+}
+.nav__left__links li a:hover {
+  border-bottom: solid var(--special-background) 6px;
+  color: var(--special-color-hover);
+}
+.nav__right__links {
+  display: flex;
+}
+.nav__right__links li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+  flex-direction: column;
+}
+.nav__right__links li img {
+  width: 16px;
+  position: relative;
+}
+.nav__right__links li:hover img {
+  filter: brightness(1.2);
+}
+.nav__right__links li a {
+  display: flex;
+  align-items: center;
+  color: var(--special-color);
+  font-size: 12px;
+  padding: 19.5px 15px;
+}
+.nav__right__links li a:hover {
+  color: white;
+}
+.special {
+  background: var(--special-background);
+  color: var(--special-color-hover);
+}
+.nav__right__links li ul {
+  position: absolute;
+  width: 200px;
+  top: 70px;
+  display: none;
+  text-align: center;
+  z-index: 10;
+}
+.nav__right__links li:hover ul {
+  display: block;
+}
+.nav__right__dropdown {
+  position: absolute;
+  background: var(--tertiary-background);
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav__right__dropdown li {
+  position: relative;
+  display: block;
+}
+.nav__right__dropdown li a {
+  position: relative;
+  display: block;
+  border-bottom: none;
+  padding: 10px;
+}
+.nav__right__dropdown li a:hover {
+  border: none;
+  color: var(--special-color-hover);
+}
+@media screen and (max-width: 800px) {
+  .nav {
+    display: none;
+  }
+}

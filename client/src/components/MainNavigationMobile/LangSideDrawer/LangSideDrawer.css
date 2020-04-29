@@ -1,0 +1,35 @@
+.lang {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  height: calc(100vh - var(--main-nav-height));
+  top: var(--main-nav-height);
+  right: 0;
+  background: var(--tertiary-background);
+  color: var(--special-color);
+  font-size: 14px;
+  animation-name: slidein;
+  animation-duration: 200ms;
+}
+.lang__links li a {
+  display: block;
+  padding: 15px;
+  color: var(--special-color);
+  border-bottom: 1px solid #444;
+}
+.close {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: var(--secondary-background);
+  cursor: pointer;
+}
+
+.close p:last-child {
+  position: absolute;
+  margin: auto;
+  width: 100px;
+  text-align: center;
+  left: 50%;
+  margin-left: -50px;
+}

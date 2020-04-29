@@ -1,0 +1,125 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EpicStore - add slider</title>
+    <style>
+      a {
+        color: white;
+      }
+      body {
+        background: #222;
+        color: white;
+      }
+      form {
+        position: relative;
+        padding: 50px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin-left: -250px;
+        left: 50%;
+        border: solid #111 2px;
+        width: 500px;
+        height: auto;
+      }
+      label {
+        padding: 10px 0;
+        font-size: 18px;
+      }
+      input {
+        display: block;
+        padding: 10px;
+        font-size: 18px;
+      }
+      .uppercase {
+      }
+      textarea {
+        width: 100%;
+        height: 300px;
+        padding: 10px;
+        font-size: 18px;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+        background: lightgreen;
+        color: #111;
+        margin-top: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      previewFile = () => {
+        const preview = document.querySelector(".img");
+        const file = document.querySelector("input[type=file]").files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener(
+          "load",
+          () => {
+            preview.src = reader.result;
+          },
+          false
+        );
+
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <%- include("nav") -%> <%= typeof msg != 'undefined' ? msg : '' %>
+    <form method="POST" enctype="multipart/form-data">
+      <h1>Main Slider Information</h1>
+      <hr />
+      <label for="gameName">Game name:</label>
+      <input type="text" name="gameName" />
+
+      <label for="mainSliderDesc">Main page slider description:</label>
+      <input type="text" name="mainSliderDesc" maxlength="" />
+      <label for="mainSliderStatus">Main page slider status:</label>
+      <input
+        type="text"
+        name="mainSliderStatus"
+        placeholder="ex: AVAILABLE NOW ..."
+      />
+      <label for="mainSliderBottomLink">Main slider bottom link name:</label>
+      <input type="text" name="mainSliderBottomLink" maxlength="15" />
+      <label for="mainSliderLinkUrl">Main slider link url to store page:</label>
+      <input type="url" name="mainSliderLinkUrl" />
+      <label>Main page slider image</label>
+      <input type="file" name="StoreSliderImg" />
+      <br /><br />
+      <h1>Buy Page Information</h1>
+      <hr />
+      <label for="buyPageShortDesc">Buy page game short description:</label>
+      <textarea type="text" name="buyPageShortDesc"></textarea>
+      <label for="buyPageDesc">Buy page game long description:</label>
+      <textarea type="text" name="buyPageDesc"></textarea>
+      <br />
+      <h2>About game</h2>
+      <br />
+      <label for="developer">Developer:</label>
+      <input type="text" name="developer" />
+      <label for="publisher">Publisher:</label>
+      <input type="text" name="publisher" />
+      <label for="releaseDate">Release Date:</label>
+      <input type="date" name="releaseDate" />
+      <label for="tags">Tags:</label>
+      <input type="text" name="tags" placeholder="ex: simulation, action ..." />
+      <label for="rating">Rating:</label>
+      <input type="text" name="rating" />
+      <label for="platform">Platform:</label>
+      <select name="platform">
+        <option>Windows</option>
+        <option>Mac</option>
+        <option>Linux</option>
+      </select>
+      <label>Store page slider videos or images</label>
+      <input type="file" multiple name="FreeLimitedGameImages" />
+      <button type="submit">Add images</button>
+    </form>
+  </body>
+</html>
