@@ -9,10 +9,8 @@ class EpicStore extends Component {
     return (
       <React.Fragment>
         <MainNavigation />
-        <div className="wrapper">
-          <NowAvailableSlider />
-          <FreeLimited />
-        </div>
+        <NowAvailableSlider />
+        <FreeLimited />
       </React.Fragment>
     );
   }

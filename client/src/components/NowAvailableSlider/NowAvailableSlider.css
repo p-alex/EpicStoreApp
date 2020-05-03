@@ -1,12 +1,14 @@
 .slider-newgames {
-  width: 100%;
-  position: relative;
+  width: var(--hd-container);
   margin: auto;
+  position: relative;
   display: flex;
-  margin-top: 50px;
+  margin-top: 90px;
   cursor: pointer;
   height: 100%;
   background: var(--tertiary-background);
+  animation-name: fadein;
+  animation-duration: var(--components-fadein-duration);
 }
 .slider-newgames__image {
   width: calc(1200px + 50vw);
@@ -14,21 +16,41 @@
   overflow: hidden;
 }
 .slider-newgames__image img {
-  width: 100%;
+  width: 101%;
   height: 100%;
   object-fit: cover;
   transition: transform 300ms 100ms ease-in-out;
+  position: relative;
+  left: 0px;
+  top: 0;
+  user-select: none;
 }
-
+.sliderVerticalImg {
+  display: none;
+}
+.sliderHorizontalImg {
+  display: block;
+}
 .slider-newgames__content-container {
   background: var(--tertiary-background);
-  padding: 30px 40px;
+  padding: 30px 42px;
   width: calc(450px + 42vw);
   transition: background 100ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
 .slider-newgames__content-container:hover {
   background: #333;
+}
+.slider-newgames__controls {
+  display: flex;
+  position: relative;
+  left: -18px;
+  margin-bottom: 0px;
+}
+.slider-newgames__controls p:hover {
+  background: #444;
 }
 .slider-newgames__arrows {
   display: flex;
@@ -43,7 +65,6 @@
   cursor: pointer;
   font-size: 14px;
 }
-
 .slider-newgames__dots {
   width: 100%;
   display: flex;
@@ -56,7 +77,6 @@
   position: relative;
   left: 30px;
 }
-
 .dot-container:hover .dot {
   background: #fff;
 }
@@ -74,24 +94,13 @@
 .dot:last-child {
   margin: 0;
 }
-.slider-newgames__controls {
-  display: flex;
-  position: relative;
-  left: -18px;
-  margin-bottom: 10px;
-}
-
-.slider-newgames__controls p:hover {
-  background: #444;
-}
 
 .slider-newgames__content {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 83%;
-  top: 20px;
+  margin-top: 10px;
+  height: auto;
 }
 .content__status {
   font-size: 12px;
@@ -101,22 +110,21 @@
 .content__info {
   margin: 10px 0;
   color: var(--special-color);
+  top: 10px;
 }
-
 .content__info h1 {
   color: #fff;
   font-weight: normal;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 1.6rem;
 }
-
 .content__info p {
-  max-width: 350px;
+  max-width: 400px;
   height: 75px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--dark-grey);
+  margin: 0;
 }
-
 .slider-newgames__learn {
   position: relative;
   color: #fff;
@@ -125,29 +133,44 @@
   color: #fff;
   font-size: 14px;
 }
-
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1921px) {
+  .slider-newgames {
+    width: var(--bigger-container);
+  }
+}
+@media screen and (max-width: 1250px) {
   .slider-newgames__content {
-    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .slider-newgames__content-container {
-    padding: 10px 30px;
+    padding: 20px 20px 30px 20px;
   }
   .content__info h1 {
     color: #fff;
     font-weight: normal;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  .content__info p {
+    font-size: 12px;
+    line-height: 20px;
   }
   .content__status {
     font-size: 10px;
+    font-weight: normal;
   }
   .slider-newgames__learn a {
     color: #fff;
     font-size: 12px;
   }
 }
+
 @media screen and (max-width: 960px) {
+  .slider-newgames {
+    width: var(--mobile-container);
+  }
   .slider-newgames {
     flex-direction: column;
   }
@@ -160,10 +183,47 @@
   .slider-newgames__content {
     top: 0;
   }
+  .content__info h1 {
+    font-size: 22px;
+  }
+  .content__info p {
+    font-size: 14px;
+  }
   .slider-newgames__image {
     width: 100%;
   }
   .slider-newgames__image img {
     height: auto;
+  }
+  .slider-newgames__arrows {
+    display: none;
+  }
+  .dot-container {
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+  }
+  .slider-newgames__dots {
+    justify-content: flex-start;
+    align-items: left;
+  }
+}
+
+@media screen and (max-width: 583px) {
+  .slider-newgames__image {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .slider-newgames__image img {
+    width: 101%;
+    object-fit: contain;
+  }
+  .sliderVerticalImg {
+    display: block;
+  }
+  .sliderHorizontalImg {
+    display: none;
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./MainNavigationDesktop.css";
+import { NavLink } from "react-router-dom";
 const mainNavigationDesktop = (props) => {
   return (
     <nav className="nav">
@@ -11,7 +12,15 @@ const mainNavigationDesktop = (props) => {
         />
         <ul className="nav__left__links">
           <li>
-            <a href="/">STORE</a>
+            <NavLink
+              to="/store"
+              activeStyle={{
+                borderBottom: "solid var(--special-background) 6px",
+                color: "var(--special-color-hover)",
+              }}
+            >
+              STORE
+            </NavLink>
           </li>
           <li>
             <a href="/">NEWS</a>
@@ -35,6 +44,7 @@ const mainNavigationDesktop = (props) => {
                 src="/images/Icons/global.png"
                 alt="language"
                 onClick={(e) => e.preventDefault()}
+                style={{ position: "relative", top: "3px" }}
               />
             </a>
             <ul className="nav__right__dropdown">

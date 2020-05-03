@@ -3,22 +3,28 @@ import "./NowAvailableSlider.css";
 import axios from "axios";
 import NowAvailableSliderContent from "./NowAvailableSliderContent/NowAvailableSliderContent";
 class NowAvailableSlider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sliderData: [],
-      sliderGames: [],
-      slideNumber: 1,
-    };
-  }
-
+  state = {
+    sliderData: [],
+    sliderGames: [],
+    slideNumber: 1,
+  };
+  autoSlide = () => {
+    let counter = this.state.slideNumber;
+    counter++;
+    if (counter > this.state.sliderGames.length) {
+      counter = 1;
+    }
+    this.setState({ slideNumber: counter });
+  };
   componentDidMount = () => {
+    // setInterval(this.autoSlide, 12000);
     axios.get("/api/slider").then((response) => {
       const list = [];
       response.data.map((d) => {
         list.push(d.name);
       });
       this.setState({ sliderData: response.data, sliderGames: list });
+      console.log(this.state.sliderData);
     });
   };
 

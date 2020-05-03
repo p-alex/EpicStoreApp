@@ -2,10 +2,13 @@
   background: var(--tertiary-background);
   display: flex;
   align-items: center;
-  position: relative;
+  position: fixed;
   justify-content: space-between;
   height: var(--main-nav-height);
-  z-index: 10;
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 .nav-mobile__logo img {
   width: 32px;

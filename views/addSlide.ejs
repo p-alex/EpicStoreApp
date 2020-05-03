@@ -70,24 +70,36 @@
     </script>
   </head>
   <body>
-    <%- include("nav") -%> <%= typeof msg != 'undefined' ? msg : '' %>
+    <%- include("nav") -%>
+    <span
+      style="color: red; font-size: 21px; display: block; text-align: center;"
+      ><%= typeof msg != 'undefined' ? msg : '' %><%= typeof error !=
+      'undefined' ? error : '' %></span
+    >
+
     <form method="POST" enctype="multipart/form-data">
       <h1>Store Slider Information</h1>
       <hr />
       <label for="name">Name:</label>
-      <input type="text" name="name" />
+      <input type="text" name="name" required />
 
       <label for="desc">Description:</label>
       <textarea type="text" name="desc"></textarea>
       <label for="status">Status:</label>
-      <input type="text" name="status" placeholder="ex: AVAILABLE NOW ..." />
+      <input
+        type="text"
+        name="status"
+        placeholder="ex: AVAILABLE NOW ..."
+        required
+      />
       <label for="linkName">Bottom Link Name:</label>
-      <input type="text" name="linkName" maxlength="15" />
+      <input type="text" name="linkName" maxlength="15" required />
       <label for="linkURL">Link url:</label>
-      <input type="url" name="linkURL" />
+      <input type="url" name="linkURL" required />
       <label>Main page slider image</label>
-      <input type="file" name="StoreSliderImg" />
-
+      <input type="file" name="StoreSliderImg" required />
+      <label>Main page slider vertical image</label>
+      <input type="file" name="StoreSliderImgVertical" required />
       <button type="submit">Add Slide</button>
     </form>
   </body>
