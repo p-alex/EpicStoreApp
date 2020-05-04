@@ -5,9 +5,15 @@ const ejs = require("ejs");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-
+//HAlYKAU473NM7BjC
+//process.env.MONGO_URI
+//"mongodb://localhost:27017/epicStoreDB"
+//mongodb+srv://alex-daniel:HAlYKAU473NM7BjC@cluster0-q39go.mongodb.net/epicStoreDB
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("client/build"));
+}
 mongoose
-  .connect("mongodb://localhost:27017/epicStoreDB", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

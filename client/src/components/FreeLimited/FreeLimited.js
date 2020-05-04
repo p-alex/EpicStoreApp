@@ -22,8 +22,8 @@ class FreeGames extends Component {
     let initialPosition = null;
     let moving = false;
     let transform = 0;
-    window.addEventListener("mousedown", (e) => {
-      initialPosition = e.pageX;
+    window.addEventListener("touchstart", (e) => {
+      initialPosition = e.touches.pageX;
       moving = true;
       const transformMatrix = window
         .getComputedStyle(track)
@@ -37,9 +37,9 @@ class FreeGames extends Component {
       }
     });
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener("touchmove", (e) => {
       if (moving) {
-        const currentPosition = e.pageX;
+        const currentPosition = e.touches.pageX;
         const diff = currentPosition - initialPosition;
         let pixelsMoved = diff + transform;
         if (pixelsMoved > 0) {
@@ -50,7 +50,7 @@ class FreeGames extends Component {
         track.style.transform = `translateX(${pixelsMoved}px)`;
       }
     });
-    window.addEventListener("mouseup", (e) => {
+    window.addEventListener("touchcancel", (e) => {
       moving = false;
     });
   }
