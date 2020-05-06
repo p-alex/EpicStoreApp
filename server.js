@@ -6,9 +6,9 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const slider = require("./routes/api/slider");
-if(process.env.NODE_ENV === "production"){
-  app.use(express.static("client/build"));
-}
+
+
+const app = express();
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -16,11 +16,12 @@ mongoose
   })
   .then(() => console.log("MongoDB STARTED"))
   .catch((err) => console.log(err));
-const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("client/build"));
+}
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server started on port 5000");
