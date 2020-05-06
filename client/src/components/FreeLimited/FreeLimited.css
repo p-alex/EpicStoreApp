@@ -5,6 +5,7 @@
   margin-top: 50px;
   animation-name: fadein;
   animation-duration: var(--components-fadein-duration);
+  overflow-x: hidden;
 }
 .row-header {
   display: flex;
