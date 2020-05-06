@@ -5,10 +5,7 @@ const ejs = require("ejs");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-//HAlYKAU473NM7BjC
-//process.env.MONGO_URI
-//"mongodb://localhost:27017/epicStoreDB"
-//mongodb+srv://alex-daniel:HAlYKAU473NM7BjC@cluster0-q39go.mongodb.net/epicStoreDB
+const slider = require("./routes/api/slider");
 if(process.env.NODE_ENV === "production"){
   app.use(express.static("client/build"));
 }
@@ -23,54 +20,14 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-const sliderSchema = new mongoose.Schema({
-  imgURL: {
-    type: String,
-    required: [true, "Add the image url for the slider"],
-  },
-  imgURLVertical: {
-    type: String,
-    required: [true, "Add the image url for the slider"],
-  },
-  status: {
-    type: String,
-    required: [true, "Add the status of the slider"],
-  },
-  name: {
-    type: String,
-    required: [true, "Add the name of the slider"],
-  },
-  desc: {
-    type: String,
-    required: [true, "Add the desc of the slider"],
-  },
-  status: {
-    type: String,
-    required: [true, "Add the status of the slider"],
-  },
-  linkName: {
-    type: String,
-    required: [true, "Add the link name for the slider"],
-  },
-  linkURL: {
-    type: String,
-    required: [true, "Add the link url for the slider"],
-  },
-});
 
-const Slider = mongoose.model("Slider", sliderSchema);
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server started on port 5000");
 });
 app.get("/addSlide", (req, res) => {
+  
   res.render("addSlide");
-  //   Slider.deleteOne({ name: "Industries Of Titan" }, (err) => {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       console.log("deleted");
-  //     }
-  //   });
 });
 
 app.post("/addSlide", (req, res) => {
@@ -173,28 +130,61 @@ app.post("/addSlide", (req, res) => {
       }
     }
   });
-
-  //res.redirect("/addSlider");
-});
-app.get("/api/slider", (req, res) => {
-  Slider.find()
-    .then((response) => {
-      res.json(response);
-    })
-    .catch((err) => console.log(err));
 });
 
-app.get("/deleteSlider", (req, res) => {
+app.get("/deleteSlide", (req, res) => {
+  
   res.render("deleteSlider");
 });
 
-app.post("/deleteSlider", (req, res) => {
+app.post("/deleteSlide", (req, res) => {
+  const imageName = req.body.name.replace(":", "").split(" ").join("");
+  Slider.find({name: req.body.name}).then(response => {
+    console.log(response);
+    
+    fs.unlink(`./client/public${response[0].imgURL}` , err => {
+      if(err){
+        console.error(err);
+       
+        return;
+      }else{
+        console.log("Deleted image from StoreSliderImg: "+imageName);
+       
+      }
+    });
+    fs.unlink(`./client/public${response[0].imgURLVertical}`, err => {
+      if(err){
+        console.error(err);
+      
+        return;
+      }else{
+        console.log("Deleted image from StoreSliderImgVertical: "+imageName);
+       
+      }
+    });
+  }).catch(err => {
+    console.log(err);
+ 
+  });
+
   Slider.deleteOne({ name: req.body.name }, (err) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Successfully delete : " + req.body.name);
+      console.log("Successfully deleted data: " + req.body.name);
     }
-  });
-  res.redirect("/deleteSlider");
+  });  
+  
+  
+  res.redirect("/deleteSlide");
 });
+
+app.use("/api/slider", slider);
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("client/build"));
+
+  app.get("*", (req,res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
