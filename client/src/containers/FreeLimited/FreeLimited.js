@@ -3,6 +3,7 @@ import './FreeLimited.css';
 import FreeLimitedGame from '../../components/FreeLimitedGame/FreeLimitedGame';
 //import ReactHtmlParser , {processNodes, convertNodeToElement, htmlparser2} from 'react-html-parser';
 import axios from 'axios';
+
 import freeLimitedGame from '../../components/FreeLimitedGame/FreeLimitedGame';
 
 class FreeGames extends Component {
@@ -33,7 +34,7 @@ class FreeGames extends Component {
               <a href="/">VIEW MORE</a>
             </div>
             <div className="free-limited__list-container">
-              {this.state.gamesData.map((game) => {
+              {this.state.gamesData.map((game, id) => {
                 return (
                   <FreeLimitedGame
                     name={game.name}
