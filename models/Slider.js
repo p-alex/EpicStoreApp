@@ -4,10 +4,6 @@ const sliderSchema = new mongoose.Schema({
       type: String,
       required: [true, "Add the image url for the slider"],
     },
-    imgURLVertical: {
-      type: String,
-      required: [true, "Add the image url for the slider"],
-    },
     status: {
       type: String,
       required: [true, "Add the status of the slider"],

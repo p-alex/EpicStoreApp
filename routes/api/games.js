@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
-const Slides = require("../../models/Slider");
+const Games = require("../../models/Game");
 
 router.get("/", (req,res) => {
-    Slides.find().then(g => res.json(g)).catch(err => console.log(err));
+    Games.find().then(s => res.json(s)).catch(err => console.log(err));
 });
 
 module.exports = router;

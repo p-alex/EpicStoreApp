@@ -72,54 +72,50 @@
   <body>
     <%- include("nav") -%> <%= typeof msg != 'undefined' ? msg : '' %>
     <form method="POST" enctype="multipart/form-data">
-      <h1>Main Slider Information</h1>
-      <hr />
-      <label for="gameName">Game name:</label>
-      <input type="text" name="gameName" />
-
-      <label for="mainSliderDesc">Main page slider description:</label>
-      <input type="text" name="mainSliderDesc" maxlength="" />
-      <label for="mainSliderStatus">Main page slider status:</label>
-      <input
-        type="text"
-        name="mainSliderStatus"
-        placeholder="ex: AVAILABLE NOW ..."
-      />
-      <label for="mainSliderBottomLink">Main slider bottom link name:</label>
-      <input type="text" name="mainSliderBottomLink" maxlength="15" />
-      <label for="mainSliderLinkUrl">Main slider link url to store page:</label>
-      <input type="url" name="mainSliderLinkUrl" />
-      <label>Main page slider image</label>
-      <input type="file" name="StoreSliderImg" />
-      <br /><br />
-      <h1>Buy Page Information</h1>
-      <hr />
-      <label for="buyPageShortDesc">Buy page game short description:</label>
-      <textarea type="text" name="buyPageShortDesc"></textarea>
-      <label for="buyPageDesc">Buy page game long description:</label>
-      <textarea type="text" name="buyPageDesc"></textarea>
-      <br />
-      <h2>About game</h2>
-      <br />
+      <label for="gameName">Name:</label>
+      <input type="text" name="gameName" required/>
+      <label for="smallDesc">Small Description:</label>
+      <textarea type="text" name="smallDesc" required></textarea>
+      <label for="aboutGame">About the game:</label>
+      <textarea type="text" name="aboutGame" required></textarea>
       <label for="developer">Developer:</label>
-      <input type="text" name="developer" />
+      <input type="text" name="developer" required/>
       <label for="publisher">Publisher:</label>
-      <input type="text" name="publisher" />
+      <input type="text" name="publisher" required/>
       <label for="releaseDate">Release Date:</label>
-      <input type="date" name="releaseDate" />
+      <input type="date" name="releaseDate" required/>
       <label for="tags">Tags:</label>
-      <input type="text" name="tags" placeholder="ex: simulation, action ..." />
+      <input type="text" name="tags" placeholder="ex: simulation, action ..." required/>
       <label for="rating">Rating:</label>
-      <input type="text" name="rating" />
+      <input type="text" name="rating" required/>
       <label for="platform">Platform:</label>
       <select name="platform">
         <option>Windows</option>
         <option>Mac</option>
         <option>Linux</option>
       </select>
-      <label>Store page slider videos or images</label>
-      <input type="file" multiple name="FreeLimitedGameImages" />
-      <button type="submit">Add images</button>
+      <label for="gamePrice">Game Price:</label>
+      <input type="number" name="gamePrice" step="0.01"/>$
+      <label for="sale">Sale: (type nothing if you don't want the game to be on sale)</label>
+      <input type="number" name="sale" />%
+      <label for="isFree">Add this game as a free game for a limited time: </label>
+      <select name="isFree" >
+        <option>True</option>
+        <option>False</option>
+      </select>
+      <label>Page slideshow iframes</label>
+      <textarea type="text" name="iframeURL" placeholder="ex: iframeURL1,iframeURL2,iframeURL3"></textarea>
+      <label>Game Logo image</label>
+      <input type="file" name="gameLogo" required/>
+      <label>Game Horizontal Cover</label>
+      <input type="file" name="gameHCover" required/>
+      <label>Game Vertical Cover</label>
+      <input type="file" name="gameVCover" required/>
+      <label>Page slideshow images</label>
+      <input type="file" multiple name="slideshowImages"/>
+      <label>Page screenshots</label>
+      <input type="file" multiple name="screenshots"/>
+      <button type="submit">Add game</button>
     </form>
   </body>
 </html>

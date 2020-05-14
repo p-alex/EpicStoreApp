@@ -1,90 +1,102 @@
-import React from "react";
+import React, {Component} from 'react';
 
-const nowAvailableSliderContent = (props) => {
-  return (
-    <React.Fragment>
-      <div
-        className="slider-newgames__image"
-        // style={{
-        //   background:
-        //     "url(" +
-        //     props.sliderData[props.slideNumber - 1].imgURLVertical +
-        //     ") no-repeat center top/cover",
-        // }}
-      >
-        {props.sliderData.map((item, id) => {
-          return (
-            <React.Fragment key={id}>
-              <img
-                draggable="false"
-                className="sliderHorizontalImg"
-                style={{
-                  transform:
-                    "translateX(-" + (props.slideNumber - 1) * 100 + "%)",
-                }}
-                src={item.imgURL}
-              />
-              <img
-                draggable="false"
-                className="sliderVerticalImg"
-                style={{
-                  transform:
-                    "translateX(-" + (props.slideNumber - 1) * 100 + "%)",
-                }}
-                src={item.imgURLVertical}
-              />
-            </React.Fragment>
-          );
-        })}
-      </div>
-      <div className="slider-newgames__content-container">
-        <div>
-          <div className="slider-newgames__controls">
-            <div className="slider-newgames__arrows">
-              <p onClick={props.leftHandler}>{"<"}</p>
-              <p onClick={props.rightHandler}>{">"}</p>
-            </div>
-            <div className="slider-newgames__dots">
-              {props.sliderData.map((item, id) => {
-                return (
-                  <div
-                    className="dot-container"
-                    key={id}
-                    onClick={() => props.dotHandler(id + 1)}
-                  >
-                    <div
-                      className={
-                        props.slideNumber === id + 1 ? "dot dot-active" : "dot"
-                      }
-                    ></div>
-                  </div>
-                );
-              })}
-            </div>
+class NowAvailableSliderContent extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div
+          className="slider-newgames__image"
+          id="sliderTrack"
+          // style={{
+          //   background:
+          //     "url(" +
+          //     this.props.sliderData[this.props.slideNumber - 1].imgURLVertical +
+          //     ") no-repeat center top/cover",
+          // }}
+        >
+          <div className="arrow left-arrow" onClick={this.props.leftHandler}>
+            <i className="fas fa-arrow-left"></i>
           </div>
-          <div className="slider-newgames__content">
-            <div>
-              <p className="content__status">{props.status}</p>
-              <div className="content__info">
-                <h1>{props.name}</h1>
-                <p>
-                  {props.desc.length > 125
-                    ? props.desc.slice(
-                        0,
-                        props.desc.slice(0, 125).lastIndexOf(" ")
-                      ) + "[...]"
-                    : props.desc}
-                </p>
+          <div className="arrow right-arrow" onClick={this.props.rightHandler}>
+            <i className="fas fa-arrow-right"></i>
+          </div>
+          {this.props.sliderData.map((item, id) => {
+            return (
+              <React.Fragment key={id}>
+                <img
+                  draggable="false"
+                  className="sliderHorizontalImg"
+                  alt={id}
+                  id="slide"
+                  style={{
+                    transform:
+                      'translateX(-' +
+                      (this.props.slideNumber - 1) * 100 +
+                      '%)',
+                  }}
+                  src={item.imgURL}
+                />
+              </React.Fragment>
+            );
+          })}
+        </div>
+        <div className="slider-newgames__content-container">
+          <div>
+            <div className="slider-newgames__controls">
+              <div className="slider-newgames__arrows">
+                <p onClick={this.props.leftHandler}>{'<'}</p>
+                <p onClick={this.props.rightHandler}>{'>'}</p>
+              </div>
+              <div className="slider-newgames__dots">
+                {this.props.sliderData.map((item, id) => {
+                  return (
+                    <div
+                      className="dot-container"
+                      key={id}
+                      onClick={() => this.props.dotHandler(id + 1)}
+                    >
+                      <div
+                        className={
+                          this.props.slideNumber === id + 1
+                            ? 'dot dot-active'
+                            : 'dot'
+                        }
+                      ></div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="slider-newgames__content">
+              <div>
+                <p className="content__status">{this.props.status}</p>
+                <div className="content__info">
+                  <h1>{this.props.name}</h1>
+                  <p>
+                    {this.props.desc.length > 125
+                      ? this.props.desc.slice(
+                          0,
+                          this.props.desc.slice(0, 125).lastIndexOf(' ')
+                        ) + '[...]'
+                      : this.props.desc}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+          <div className="slider-newgames__learn">
+            <a href={this.props.linkURL}>
+              {this.props.linkName}
+              <i
+                style={{position: 'relative', left: '8px', fontSize: '12px'}}
+                className="fas fa-arrow-right"
+              ></i>
+            </a>
+          </div>
         </div>
-        <div className="slider-newgames__learn">
-          <a href={props.linkURL}>{props.linkName}</a>
-        </div>
-      </div>
-    </React.Fragment>
-  );
-};
+      </React.Fragment>
+    );
+  }
+}
 
-export default nowAvailableSliderContent;
+export default NowAvailableSliderContent;

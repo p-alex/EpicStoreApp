@@ -3,17 +3,18 @@
   margin: auto;
   position: relative;
   display: flex;
-  margin-top: 90px;
+  margin-top: 100px;
   cursor: pointer;
   height: 100%;
   background: var(--tertiary-background);
   animation-name: fadein;
   animation-duration: var(--components-fadein-duration);
+  overflow: hidden;
 }
 .slider-newgames__image {
+  position: relative;
   width: calc(1200px + 50vw);
   display: flex;
-  overflow: hidden;
 }
 .slider-newgames__image img {
   width: 101%;
@@ -25,13 +26,12 @@
   top: 0;
   user-select: none;
 }
-.sliderVerticalImg {
+
+.arrow{
   display: none;
 }
-.sliderHorizontalImg {
-  display: block;
-}
 .slider-newgames__content-container {
+  z-index: 1;
   background: var(--tertiary-background);
   padding: 30px 42px;
   width: calc(450px + 42vw);
@@ -169,7 +169,7 @@
 
 @media screen and (max-width: 960px) {
   .slider-newgames {
-    width: var(--mobile-container);
+    width: 100%;
   }
   .slider-newgames {
     flex-direction: column;
@@ -178,13 +178,16 @@
     width: 100%;
     position: relative;
     top: 0px;
-    padding: 20px 30px;
+    padding: 20px;
+
   }
   .slider-newgames__content {
     top: 0;
+    height: 120px;
   }
   .content__info h1 {
-    font-size: 22px;
+    font-size: 24px;
+    margin-bottom: 10px;
   }
   .content__info p {
     font-size: 14px;
@@ -194,6 +197,34 @@
   }
   .slider-newgames__image img {
     height: auto;
+  }
+  .arrow{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top:50%;
+    margin-top: -20px;
+    background:rgba(0, 0, 0, 0.5);
+    transition: background 100ms ease-in-out;
+  }
+  .arrow:hover{
+    background: var(--tertiary-background);
+  }
+  .arrow i {
+    font-size: 14px;
+    color: white;
+  }
+  .left-arrow{
+    left:5px;
+  }
+  
+  .right-arrow{
+    right:5px;
   }
   .slider-newgames__arrows {
     display: none;
@@ -208,6 +239,10 @@
     justify-content: flex-start;
     align-items: left;
   }
+  .dot-container {
+    padding: 10px;
+    left:10px;
+  }
 }
 
 @media screen and (max-width: 583px) {
@@ -219,11 +254,5 @@
   .slider-newgames__image img {
     width: 101%;
     object-fit: contain;
-  }
-  .sliderVerticalImg {
-    display: block;
-  }
-  .sliderHorizontalImg {
-    display: none;
   }
 }

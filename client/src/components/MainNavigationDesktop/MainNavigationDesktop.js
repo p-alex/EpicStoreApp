@@ -1,6 +1,6 @@
-import React from "react";
-import "./MainNavigationDesktop.css";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import './MainNavigationDesktop.css';
+import {NavLink} from 'react-router-dom';
 const mainNavigationDesktop = (props) => {
   return (
     <nav className="nav">
@@ -15,8 +15,8 @@ const mainNavigationDesktop = (props) => {
             <NavLink
               to="/store"
               activeStyle={{
-                borderBottom: "solid var(--special-background) 6px",
-                color: "var(--special-color-hover)",
+                borderBottom: 'solid var(--special-background) 6px',
+                color: 'var(--special-color-hover)',
               }}
             >
               STORE
@@ -44,7 +44,7 @@ const mainNavigationDesktop = (props) => {
                 src="/images/Icons/global.png"
                 alt="language"
                 onClick={(e) => e.preventDefault()}
-                style={{ position: "relative", top: "3px" }}
+                style={{position: 'relative', top: '3px'}}
               />
             </a>
             <ul className="nav__right__dropdown">
@@ -65,7 +65,7 @@ const mainNavigationDesktop = (props) => {
           <li>
             <a href="/">
               <img
-                style={{ marginRight: "10px" }}
+                style={{marginRight: '10px'}}
                 src="/images/Icons/user.png"
                 alt="sign-in"
               />

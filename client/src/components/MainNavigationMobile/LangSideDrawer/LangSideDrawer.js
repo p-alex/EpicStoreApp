@@ -1,10 +1,10 @@
-import React from "react";
-import "./LangSideDrawer.css";
+import React from 'react';
+import './LangSideDrawer.css';
 const langSideDrawer = (props) => {
   return (
     <div className="lang">
       <div className="close" onClick={props.isOpen}>
-        <p>{"<"}</p>
+        <p>{'<'}</p>
         <p>ENGLISH</p>
       </div>
       <ul className="lang__links">

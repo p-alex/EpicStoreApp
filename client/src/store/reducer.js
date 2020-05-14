@@ -30,8 +30,9 @@ const reducer = (state = initialState, action) => {
           isLangOpen: true,
         };
       }
+    default:
+      return state
   }
-  return state;
 };
 
 export default reducer;

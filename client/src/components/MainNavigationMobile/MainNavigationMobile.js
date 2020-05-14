@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import "./MainNavigationMobile.css";
-import { connect } from "react-redux";
-import LangSideDrawer from "./LangSideDrawer/LangSideDrawer";
+import React, {Component} from 'react';
+import './MainNavigationMobile.css';
+import {connect} from 'react-redux';
+import LangSideDrawer from './LangSideDrawer/LangSideDrawer';
 class MainNavigationMobile extends Component {
   render() {
     return (
@@ -11,7 +11,7 @@ class MainNavigationMobile extends Component {
             <img src="/images/Logos/epic-games-logo.png" alt="logo" />
           </div>
           <p className="burger" onClick={this.props.onBurgerChange}>
-            {this.props.ibo ? "X" : "MENU"}
+            {this.props.ibo ? 'X' : 'MENU'}
           </p>
           {this.props.ibo ? (
             <div className="burger__dropdown">
@@ -67,8 +67,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onBurgerChange: () => dispatch({ type: "BURGER" }),
-    onLangChange: (e) => dispatch({ type: "LANG", e: e }),
+    onBurgerChange: () => dispatch({type: 'BURGER'}),
+    onLangChange: (e) => dispatch({type: 'LANG', e: e}),
   };
 };
 export default connect(
