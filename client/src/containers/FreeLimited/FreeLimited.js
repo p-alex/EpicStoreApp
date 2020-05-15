@@ -14,14 +14,14 @@ class FreeGames extends Component {
     axios.get('/api/games').then((response) => {
       let array = [];
       response.data.map((item) => {
-        console.log(item);
+        //console.log(item);
         if (item.isFree === 'True') {
           array.push(item);
           this.setState({gamesData: array});
         }
       });
 
-      console.log(this.state.gamesData);
+      // console.log(this.state.gamesData);
     });
   }
   render() {
@@ -37,6 +37,7 @@ class FreeGames extends Component {
               {this.state.gamesData.map((game, id) => {
                 return (
                   <FreeLimitedGame
+                    key={id}
                     name={game.name}
                     img={game.gameHCover}
                     freeUntil={game.freeUntil}
