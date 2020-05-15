@@ -9,6 +9,7 @@ class GamePageSlider extends Component {
     sliderImages: [],
     totalSlides: 0,
     currentSlide: 1,
+    showMore: false,
   };
   componentDidMount() {
     let sliderVideos = [];
@@ -34,6 +35,19 @@ class GamePageSlider extends Component {
   componentDidUpdate() {
     console.log(this.state.currentSlide);
   }
+  showMore = () => {
+    const track = document.getElementById('track');
+    if (this.state.showMore) {
+      this.setState({showMore: false});
+      track.classList.remove('show-more');
+      return;
+    }
+    if (!this.state.showMore) {
+      this.setState({showMore: true});
+      track.classList.add('show-more');
+      return;
+    }
+  };
   right = () => {
     let counter = this.state.currentSlide;
     counter = counter + 1;
@@ -69,6 +83,7 @@ class GamePageSlider extends Component {
           </span>
           <div
             className="game-page-slider__track"
+            id="track"
             style={{
               transform: `translateX(-${(this.state.currentSlide - 1) * 100}%)`,
             }}
@@ -102,7 +117,7 @@ class GamePageSlider extends Component {
                   style={
                     this.state.currentSlide -
                       (this.state.sliderVideos.length + 1) !==
-                    id
+                      id && this.state.showMore !== true
                       ? {opacity: '0.1'}
                       : {opacity: '1'}
                   }
@@ -117,6 +132,15 @@ class GamePageSlider extends Component {
               style={{position: 'relative', fontSize: '18px'}}
               className="fas fa-arrow-right"
             ></i>
+          </span>
+          <span
+            className="game-page-slider__show-more"
+            id="show-more"
+            onClick={this.showMore}
+          >
+            {this.state.showMore
+              ? `Show Less`
+              : `Show ${this.state.totalSlides - 1} More`}
           </span>
         </section>
       </React.Fragment>

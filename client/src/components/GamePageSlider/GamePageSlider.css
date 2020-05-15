@@ -68,11 +68,63 @@
   transition: transform 200ms ease-in-out;
 }
 
+.game-page-slider__show-more {
+  display: none;
+}
+
 @media screen and (max-width: 960px) {
   .game-page-slider {
     width: 90%;
+    height: auto;
+  }
+  .game-page-slider__track {
+    height: calc(160px + 42vw);
+    overflow: hidden;
+    padding-bottom: 50px;
+  }
+  .game-page-slider__track.show-more {
+    height: auto;
+    overflow: visible;
+    transition: height 200ms ease-in-out;
   }
   .game-page-slider__image img {
-    object-fit: contain;
+    object-fit: cover;
+    height: auto;
+  }
+  .game-page-slider__video {
+    padding: 0;
+    height: calc(60px + 42vw);
+    margin-bottom: 5px;
+  }
+
+  .game-page-slider__image {
+    padding: 0;
+
+    height: auto;
+  }
+  .game-page-slider__track {
+    flex-direction: column;
+  }
+  .game-page-slider__left {
+    left: 5px;
+  }
+
+  .game-page-right {
+    right: 5px;
+  }
+  .ctrl {
+    display: none;
+  }
+  .game-page-slider__show-more {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: var(--special-background);
+    color: white;
+    text-align: center;
+    cursor: pointer;
   }
 }
