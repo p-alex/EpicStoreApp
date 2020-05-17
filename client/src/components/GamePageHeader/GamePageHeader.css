@@ -1,0 +1,5 @@
+.game-page-header {
+  width: var(--hd-container);
+  margin: auto;
+  border: solid red 1px;
+}

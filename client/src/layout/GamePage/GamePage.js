@@ -8,6 +8,7 @@ import ReactHtmlParser, {
   htmlparser2,
 } from 'react-html-parser';
 import GamePageSlider from '../../components/GamePageSlider/GamePageSlider';
+import GamePageHeader from '../../components/GamePageHeader/GamePageHeader';
 class GamePage extends Component {
   state = {
     gameData: [],
@@ -39,6 +40,7 @@ class GamePage extends Component {
             gameData={this.state.gameData}
             params={this.props.match.params.gameName}
           />
+          <GamePageHeader />
         </div>
       </React.Fragment>
     );
