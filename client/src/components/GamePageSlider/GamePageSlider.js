@@ -4,36 +4,12 @@ import axios from 'axios';
 
 class GamePageSlider extends Component {
   state = {
-    currentGame: [],
-    sliderVideos: [],
-    sliderImages: [],
     totalSlides: 0,
     currentSlide: 1,
     showMore: false,
   };
   componentDidMount() {
-    let sliderVideos = [];
-    let sliderImages = [];
-    axios.get('/api/games').then((response) => {
-      response.data.map((d) => {
-        if (d.name.split(' ').join('') === this.props.params) {
-          sliderVideos = d.videoURL.split(',');
-          sliderImages = d.imagesURL;
-        }
-      });
-      this.setState({
-        sliderVideos: sliderVideos,
-        sliderImages: sliderImages,
-        totalSlides: sliderImages.length + sliderVideos.length,
-        currentGame: response.data,
-      });
-
-      const iframe = document.getElementsByTagName('iframe')[0].contentWindow;
-      console.log(iframe);
-    });
-  }
-  componentDidUpdate() {
-    console.log(this.state.currentSlide);
+    console.log(this.props);
   }
   showMore = () => {
     const track = document.getElementById('track');
@@ -52,7 +28,7 @@ class GamePageSlider extends Component {
   right = () => {
     let counter = this.state.currentSlide;
     counter = counter + 1;
-    if (counter > this.state.totalSlides) {
+    if (counter > this.props.totalSlides) {
       counter = 1;
     }
     this.setState({currentSlide: counter});
@@ -61,7 +37,7 @@ class GamePageSlider extends Component {
     let counter = this.state.currentSlide;
     counter = counter - 1;
     if (counter < 1) {
-      counter = this.state.totalSlides;
+      counter = this.props.totalSlides;
     }
     this.setState({currentSlide: counter});
   };
@@ -74,13 +50,13 @@ class GamePageSlider extends Component {
     //     return b.imagesURL;
     //   })
     // );
-    console.log('Total Slides' + this.state.totalSlides);
+    console.log('Total Slides' + this.props.totalSlides);
 
     return (
       <React.Fragment>
-        <section>
+        <section className="game-page-slider_container">
           <div className="game-page-slider">
-            <span class="game-page-slider__left ctrl" onClick={this.left}>
+            <span className="game-page-slider__left ctrl" onClick={this.left}>
               <i
                 style={{position: 'relative', fontSize: '18px'}}
                 className="fas fa-arrow-left"
@@ -95,7 +71,7 @@ class GamePageSlider extends Component {
                 }%)`,
               }}
             >
-              {this.state.sliderVideos.map((video, id) => {
+              {this.props.sliderVideos.map((video, id) => {
                 return (
                   <div
                     className="game-page-slider__video"
@@ -109,6 +85,7 @@ class GamePageSlider extends Component {
                   >
                     <iframe
                       src={video + '?rel=0'}
+                      onClick={() => this.dotHandler(id)}
                       allowFullScreen
                       frameBorder="0"
                     ></iframe>
@@ -116,19 +93,14 @@ class GamePageSlider extends Component {
                 );
               })}
 
-              {this.state.sliderImages.map((item, id) => {
-                console.log(
-                  'id' + id,
-                  'Slidervideo length: ' + this.state.sliderVideos.length
-                );
-
+              {this.props.sliderImages.map((item, id) => {
                 return (
                   <div
                     className="game-page-slider__image"
                     key={id}
                     style={
                       this.state.currentSlide -
-                        (this.state.sliderVideos.length + 1) !==
+                        (this.props.sliderVideos.length + 1) !==
                         id && this.state.showMore !== true
                         ? {opacity: '0.2'}
                         : {opacity: '1'}
@@ -140,7 +112,7 @@ class GamePageSlider extends Component {
               })}
             </div>
 
-            <span class="game-page-right ctrl" onClick={this.right}>
+            <span className="game-page-right ctrl" onClick={this.right}>
               <i
                 style={{position: 'relative', fontSize: '18px'}}
                 className="fas fa-arrow-right"
@@ -153,11 +125,11 @@ class GamePageSlider extends Component {
             >
               {this.state.showMore
                 ? `Show Less`
-                : `Show ${this.state.totalSlides - 1} More`}
+                : `Show ${this.props.totalSlides - 1} More`}
             </span>
           </div>
           <div className="game-page-slider__dots">
-            {this.state.sliderVideos.map((v, index) => {
+            {this.props.sliderVideos.map((v, index) => {
               return (
                 <div
                   className="game-page-slider__dot-container"
@@ -173,18 +145,18 @@ class GamePageSlider extends Component {
                 </div>
               );
             })}
-            {this.state.sliderImages.map((i, index) => {
+            {this.props.sliderImages.map((i, index) => {
               return (
                 <div
                   className="game-page-slider__dot-container"
                   onClick={() =>
-                    this.dotHandler(index + this.state.sliderVideos.length + 1)
+                    this.dotHandler(index + this.props.sliderVideos.length + 1)
                   }
                 >
                   <div
                     className={
                       this.state.currentSlide ===
-                      index + this.state.sliderVideos.length + 1
+                      index + this.props.sliderVideos.length + 1
                         ? 'game-page-slider__dot game-page-slider__dot-active'
                         : 'game-page-slider__dot'
                     }

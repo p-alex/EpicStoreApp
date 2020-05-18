@@ -1,3 +1,6 @@
+.game-page-slider_container {
+  position: relative;
+}
 .game-page-slider {
   position: relative;
   width: 75%;
@@ -84,12 +87,17 @@
 .game-page-slider__dot {
   padding: 3px;
   border-radius: 50%;
-  background: #999;
-  margin: 15px;
+  background: #333;
+  margin: 15px 10px;
   transition: background 200ms ease-in-out;
 }
 .game-page-slider__dot-active {
   background: rgb(240, 61, 61);
+}
+@media screen and (min-width: 1921px) {
+  .game-page-slider {
+    width: 65%;
+  }
 }
 @media screen and (max-width: 1400px) {
   .game-page-slider {
@@ -99,9 +107,9 @@
 }
 @media screen and (max-width: 960px) {
   .game-page-slider__track {
-    height: calc(100px + 42vw);
+    height: calc(78px + 42vw);
     overflow: hidden;
-    padding-bottom: 50px;
+    padding-bottom: 37px;
     transform: translateX(0);
   }
   .game-page-slider__track.show-more {
@@ -115,7 +123,7 @@
   }
   .game-page-slider__video {
     padding: 0;
-    height: calc(60px + 42vw);
+    height: calc(36px + 42vw);
     margin-bottom: 5px;
   }
 

@@ -1,0 +1,55 @@
+.game-page-about {
+  position: relative;
+  color: #cfcfcf;
+  width: 100%;
+
+  margin: 0 auto 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.game-page-about_section-title {
+  position: relative;
+  display: block;
+  width: 20%;
+}
+
+.game-page-about_section-title h3 {
+  position: sticky;
+  font-weight: normal;
+  top: 100px;
+}
+.game-page-about_desc-img {
+  position: relative;
+  width: 80%;
+  transition: height 200ms ease-in-out;
+  overflow: hidden;
+}
+.game-page-about_desc-img img {
+  margin: 0;
+}
+.desc-img_show-more {
+  position: sticky;
+  bottom: 0;
+  left: 0px;
+  background: rgb(240, 61, 61);
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 30px 0 black;
+  user-select: none;
+}
+@media screen and (max-width: 960px) {
+  .game-page-about {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .game-page-about_section-title {
+    width: 100%;
+    position: relative;
+  }
+  .game-page-about_desc-img {
+    width: 100%;
+  }
+}

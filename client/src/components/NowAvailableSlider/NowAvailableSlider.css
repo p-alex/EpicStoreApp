@@ -11,6 +11,7 @@
   animation-duration: var(--components-fadein-duration);
   overflow: hidden;
 }
+
 .slider-newgames__image {
   position: relative;
   width: calc(1200px + 50vw);
@@ -27,7 +28,7 @@
   user-select: none;
 }
 
-.arrow{
+.arrow {
   display: none;
 }
 .slider-newgames__content-container {
@@ -179,7 +180,6 @@
     position: relative;
     top: 0px;
     padding: 20px;
-
   }
   .slider-newgames__content {
     top: 0;
@@ -198,33 +198,32 @@
   .slider-newgames__image img {
     height: auto;
   }
-  .arrow{
+  .arrow {
     position: absolute;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
-    top:50%;
+    top: 50%;
     margin-top: -20px;
-    background:rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     transition: background 100ms ease-in-out;
   }
-  .arrow:hover{
+  .arrow:hover {
     background: var(--tertiary-background);
   }
   .arrow i {
     font-size: 14px;
     color: white;
   }
-  .left-arrow{
-    left:5px;
+  .left-arrow {
+    left: 5px;
   }
-  
-  .right-arrow{
-    right:5px;
+
+  .right-arrow {
+    right: 5px;
   }
   .slider-newgames__arrows {
     display: none;
@@ -241,7 +240,7 @@
   }
   .dot-container {
     padding: 10px;
-    left:10px;
+    left: 10px;
   }
 }
 

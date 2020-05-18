@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './MainNavigationMobile.css';
 import {connect} from 'react-redux';
 import LangSideDrawer from './LangSideDrawer/LangSideDrawer';
+import {Link} from 'react-router-dom';
 class MainNavigationMobile extends Component {
   render() {
     return (
@@ -17,7 +18,9 @@ class MainNavigationMobile extends Component {
             <div className="burger__dropdown">
               <ul className="nav-mobile__dropdown">
                 <li>
-                  <a href="/">STORE</a>
+                  <Link to="/" onClick={this.props.onLinkClick}>
+                    STORE
+                  </Link>
                 </li>
                 <li>
                   <a href="/">NEWS</a>
@@ -69,6 +72,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onBurgerChange: () => dispatch({type: 'BURGER'}),
     onLangChange: (e) => dispatch({type: 'LANG', e: e}),
+    onLinkClick: () => dispatch({type: 'linkClick'}),
   };
 };
 export default connect(

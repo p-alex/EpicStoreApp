@@ -5,7 +5,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "BURGER":
+    case 'BURGER':
       if (state.isBurgerOpen) {
         return {
           ...state,
@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
           isBurgerOpen: true,
         };
       }
-    case "LANG":
+    case 'LANG':
       if (state.isLangOpen) {
         return {
           ...state,
@@ -30,8 +30,13 @@ const reducer = (state = initialState, action) => {
           isLangOpen: true,
         };
       }
+    case 'linkClick':
+      return {
+        ...state,
+        isBurgerOpen: false,
+      };
     default:
-      return state
+      return state;
   }
 };
 

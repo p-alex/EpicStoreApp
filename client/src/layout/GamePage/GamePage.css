@@ -3,10 +3,25 @@
   background-color: black;
   margin-top: var(--main-nav-height);
   height: auto;
+  border: solid black 0.1px;
+  animation-name: fadein;
+  animation-duration: var(--components-fadein-duration);
 }
 
+.GamePage-content {
+  width: 70%;
+  margin: auto;
+}
+@media screen and (min-width: 1921px) {
+  .GamePage-content {
+    width: 60%;
+  }
+}
 @media screen and (max-width: 1400px) {
   .GamePage-wrapper {
     height: auto;
+  }
+  .GamePage-content {
+    width: 90%;
   }
 }
