@@ -67,8 +67,12 @@
   .game-page-about_section-title {
     width: 100%;
     position: relative;
+    margin-bottom: 10px;
   }
   .game-page-about_desc-img {
     width: 100%;
+  }
+  .game-page-about_info {
+    grid-template-columns: 1fr 1fr;
   }
 }
