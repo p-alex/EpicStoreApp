@@ -62,7 +62,7 @@ app.post('/addGame', (req, res) => {
     filename: (req, file, cb) => {
       cb(
         null,
-        req.body.gameName.replace(':', '').split(' ').join('') +
+        req.body.gameName.replace(':-', '').split(' ').join('') +
           '_' +
           Date.now() +
           path.extname(file.originalname)
@@ -76,11 +76,11 @@ app.post('/addGame', (req, res) => {
       checkFile(file, cb);
     },
   }).fields([
-    {name: 'slideshowImages', maxCount: 12},
-    {name: 'screenshots', maxCount: 12},
-    {name: 'gameLogo'},
-    {name: 'gameHCover'},
-    {name: 'gameVCover'},
+    {name: 'slideshowImages'},
+    {name: 'screenshots'},
+    {name: 'gameLogo', maxCount: 1},
+    {name: 'gameHCover', maxCount: 1},
+    {name: 'gameVCover', maxCount: 1},
   ]);
 
   checkFile = (file, cb) => {
@@ -177,7 +177,7 @@ app.post('/addSlide', (req, res) => {
     filename: (req, file, cb) => {
       cb(
         null,
-        req.body.name.replace(':', '').split(' ').join('') +
+        req.body.name.replace(':-', '').split(' ').join('') +
           path.extname(file.originalname)
       );
     },
@@ -237,7 +237,7 @@ app.post('/addSlide', (req, res) => {
             imgURL:
               '/images/StoreSliderImg' +
               '/' +
-              req.body.name.replace(':', '').split(' ').join('') +
+              req.body.name.replace(':-', '').split(' ').join('') +
               req.files.StoreSliderImg[0].originalname.slice(
                 req.files.StoreSliderImg[0].originalname.indexOf('.'),
                 req.files.StoreSliderImg[0].originalname.length
@@ -272,7 +272,7 @@ app.get('/deleteSlide', (req, res) => {
 });
 
 app.post('/deleteSlide', (req, res) => {
-  const imageName = req.body.name.replace(':', '').split(' ').join('');
+  const imageName = req.body.name.replace(':-', '').split(' ').join('');
   Slider.find({name: req.body.name})
     .then((response) => {
       console.log(response);

@@ -10,17 +10,17 @@
 .game-page-about_section-title {
   position: relative;
   display: block;
-  width: 20%;
+  width: 25%;
 }
 
 .game-page-about_section-title h3 {
   position: sticky;
   font-weight: normal;
-  top: 100px;
+  top: 80px;
 }
 .game-page-about_desc-img {
   position: relative;
-  width: 80%;
+  width: 75%;
   transition: height 200ms ease-in-out;
   overflow: hidden;
 }
@@ -31,7 +31,7 @@
   position: sticky;
   bottom: 0;
   left: 0px;
-  background: rgb(240, 61, 61);
+  background: var(--special-background-hover);
   text-align: center;
   width: 100%;
   display: block;

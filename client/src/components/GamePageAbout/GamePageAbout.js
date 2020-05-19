@@ -34,7 +34,34 @@ class GamePageAbout extends Component {
           <p>{ReactHtmlParser(this.props.aboutGame)}</p>
           {this.props.screenshots.map((s, id) => {
             if (this.props.screenshots.length > 2) {
-              if (id % 3 === 0) {
+              if (this.props.screenshots.length % 2 === 0) {
+                if (id % 4 === 0) {
+                  return (
+                    <img
+                      src={`/images/${this.props.params}/${s}`}
+                      style={{width: '100%'}}
+                    />
+                  );
+                } else {
+                  // if (
+                  //   this.props.screenshots.length % 2 === 0 &&
+                  //   id + 1 === this.props.screenshots.length
+                  // ) {
+                  //   return (
+                  //     <img
+                  //       src={`/images/${this.props.params}/${s}`}
+                  //       style={{width: '100%'}}
+                  //     />
+                  //   );
+                  // } else {
+                  return (
+                    <img
+                      src={`/images/${this.props.params}/${s}`}
+                      style={{width: '33%', padding: '4px'}}
+                    />
+                  );
+                }
+              } else if (id % 3 === 0) {
                 return (
                   <img
                     src={`/images/${this.props.params}/${s}`}

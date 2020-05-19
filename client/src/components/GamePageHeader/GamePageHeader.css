@@ -37,7 +37,7 @@
 }
 .buy-btn a {
   padding: 10px 20px;
-  background: rgb(240, 61, 61);
+  background: var(--special-background-hover);
   display: block;
   text-align: center;
   color: white;

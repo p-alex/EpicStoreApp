@@ -84,7 +84,7 @@ class GamePageSlider extends Component {
                     }
                   >
                     <iframe
-                      src={video + '?rel=0'}
+                      src={'https://www.youtube.com/embed/' + video + '?rel=0'}
                       onClick={() => this.dotHandler(id)}
                       allowFullScreen
                       frameBorder="0"

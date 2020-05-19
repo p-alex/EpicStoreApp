@@ -34,7 +34,7 @@
 .nav__left__links li a {
   border-bottom: solid transparent 6px;
   display: block;
-  padding: 11px 15px;
+  padding: 9px 15px;
   color: var(--special-color);
   transition: border 100ms ease-in-out;
   font-size: 12px;
@@ -79,7 +79,7 @@
   align-items: center;
   color: var(--special-color);
   font-size: 12px;
-  padding: 16px 15px;
+  padding: 14px 15px;
 }
 .nav__right__links li a:hover {
   color: white;
