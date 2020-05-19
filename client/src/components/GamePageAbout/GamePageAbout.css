@@ -18,6 +18,25 @@
   font-weight: normal;
   top: 80px;
 }
+.game-page-about_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.info-box {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.info-box p:first-child {
+  color: grey;
+}
+.game-page-about_about-game {
+  margin-bottom: 10px;
+}
 .game-page-about_desc-img {
   position: relative;
   width: 75%;

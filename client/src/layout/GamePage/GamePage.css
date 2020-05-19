@@ -1,6 +1,6 @@
 .GamePage-wrapper {
   width: 100%;
-  background-color: black;
+  background-color: #111;
   margin-top: var(--main-nav-height);
   height: auto;
   border: solid black 0.1px;

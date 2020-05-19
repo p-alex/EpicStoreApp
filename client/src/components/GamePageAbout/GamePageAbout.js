@@ -31,7 +31,35 @@ class GamePageAbout extends Component {
               : {height: 'auto', overflow: 'auto'}
           }
         >
-          <p>{ReactHtmlParser(this.props.aboutGame)}</p>
+          <div className="game-page-about_info">
+            <div className="info-box">
+              <p>Developer</p>
+              <p>{this.props.developer}</p>
+            </div>
+            <div className="info-box">
+              <p>Publisher</p>
+              <p>{this.props.publisher}</p>
+            </div>
+            <div className="info-box">
+              <p>Release Date</p>
+              <p>{this.props.releaseDate}</p>
+            </div>
+            <div className="info-box">
+              <p>Tags</p>
+              <p>{this.props.tags}</p>
+            </div>
+            <div className="info-box">
+              <p>Rating</p>
+              <p>{this.props.rating}</p>
+            </div>
+            <div className="info-box">
+              <p>Platform</p>
+              <p>{this.props.platform}</p>
+            </div>
+          </div>
+          <p className="game-page-about_about-game">
+            {ReactHtmlParser(this.props.aboutGame)}
+          </p>
           {this.props.screenshots.map((s, id) => {
             if (this.props.screenshots.length > 2) {
               if (this.props.screenshots.length % 2 === 0) {

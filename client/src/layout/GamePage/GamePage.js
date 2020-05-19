@@ -22,6 +22,12 @@ class GamePage extends Component {
     smallDesc: '',
     aboutGame: '',
     gameLogo: '',
+    publisher: '',
+    developer: '',
+    releaseDate: '',
+    rating: '',
+    tags: '',
+    platform: '',
   };
   componentDidMount() {
     this.setState({loading: true});
@@ -48,6 +54,12 @@ class GamePage extends Component {
               gamePrice: d.gamePrice,
               smallDesc: d.smallDesc,
               aboutGame: d.aboutGame,
+              publisher: d.publisher,
+              developer: d.developer,
+              releaseDate: d.releaseDate,
+              tags: d.tags,
+              rating: d.rating,
+              platform: d.platform,
               gameLogo: d.gameLogoURL,
               loading: false,
             });
@@ -80,6 +92,12 @@ class GamePage extends Component {
                   params={this.props.match.params.gameName}
                   aboutGame={this.state.aboutGame}
                   screenshots={this.state.screenshotsArray}
+                  publisher={this.state.publisher}
+                  developer={this.state.developer}
+                  releaseDate={this.state.releaseDate}
+                  tags={this.state.tags}
+                  platform={this.state.platform}
+                  rating={this.state.rating}
                 />
               </div>
             </React.Fragment>
