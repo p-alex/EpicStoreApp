@@ -49,6 +49,7 @@
 @media screen and (max-width: 960px) {
   .game-page-header {
     flex-direction: column;
+    z-index: 1;
   }
 
   .game-page-header__desc {

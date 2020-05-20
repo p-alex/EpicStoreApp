@@ -1,9 +1,7 @@
 .GamePage-wrapper {
   width: 100%;
-  background-color: #111;
   margin-top: var(--main-nav-height);
   height: auto;
-  border: solid black 0.1px;
   animation-name: fadein;
   animation-duration: var(--components-fadein-duration);
 }
@@ -15,6 +13,13 @@
 @media screen and (min-width: 1921px) {
   .GamePage-content {
     width: 60%;
+  }
+  .GamePage-wrapper {
+    width: 2200px;
+    overflow: hidden;
+    border: solid 1px black;
+    margin: auto;
+    margin-top: var(--main-nav-height);
   }
 }
 @media screen and (max-width: 1400px) {

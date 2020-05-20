@@ -56,6 +56,14 @@ class GamePageSlider extends Component {
       <React.Fragment>
         <section className="game-page-slider_container">
           <div className="game-page-slider">
+            <div
+              className="game-page-slider__invisible-control-left"
+              onClick={this.left}
+            ></div>
+            <div
+              className="game-page-slider__invisible-control-right"
+              onClick={this.right}
+            ></div>
             <span className="game-page-slider__left ctrl" onClick={this.left}>
               <i
                 style={{position: 'relative', fontSize: '18px'}}
@@ -76,6 +84,7 @@ class GamePageSlider extends Component {
                   <div
                     className="game-page-slider__video"
                     key={id}
+                    onClick={() => this.dotHandler(id + 1)}
                     style={
                       this.state.currentSlide - 1 !== id &&
                       this.state.showMore !== true
@@ -85,7 +94,6 @@ class GamePageSlider extends Component {
                   >
                     <iframe
                       src={'https://www.youtube.com/embed/' + video + '?rel=0'}
-                      onClick={() => this.dotHandler(id)}
                       allowFullScreen
                       frameBorder="0"
                     ></iframe>
@@ -112,7 +120,7 @@ class GamePageSlider extends Component {
               })}
             </div>
 
-            <span className="game-page-right ctrl" onClick={this.right}>
+            <span className="game-page-slider__right ctrl" onClick={this.right}>
               <i
                 style={{position: 'relative', fontSize: '18px'}}
                 className="fas fa-arrow-right"

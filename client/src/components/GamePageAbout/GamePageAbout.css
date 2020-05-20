@@ -2,7 +2,6 @@
   position: relative;
   color: #cfcfcf;
   width: 100%;
-
   margin: 0 auto 50px auto;
   display: flex;
   justify-content: space-between;
@@ -36,12 +35,14 @@
 }
 .game-page-about_about-game {
   margin-bottom: 10px;
+  text-align: left;
 }
 .game-page-about_desc-img {
   position: relative;
-  width: 75%;
+  width: 100%;
   transition: height 200ms ease-in-out;
   overflow: hidden;
+  text-align: center;
 }
 .game-page-about_desc-img img {
   margin: 0;
