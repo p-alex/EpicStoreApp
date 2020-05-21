@@ -4,6 +4,7 @@
   height: auto;
   animation-name: fadein;
   animation-duration: var(--components-fadein-duration);
+  background: #111;
 }
 
 .GamePage-content {
@@ -17,7 +18,6 @@
   .GamePage-wrapper {
     width: 2200px;
     overflow: hidden;
-    border: solid 1px black;
     margin: auto;
     margin-top: var(--main-nav-height);
   }

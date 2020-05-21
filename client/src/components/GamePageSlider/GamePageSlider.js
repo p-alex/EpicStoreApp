@@ -10,6 +10,21 @@ class GamePageSlider extends Component {
   };
   componentDidMount() {
     console.log(this.props);
+    // const tag = document.createElement('script');
+    //   tag.src = 'https://www.youtube.com/player_api';
+    //   const firstScriptTag = document.getElementsByTagName('script')[0];
+    //   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    //   const player = null;
+    //   onYoutubePlayerAPIReady = () => {
+    //     player = new YT.Player('video0', {
+    //       events: {
+    //         onReady: onPlayerReady,
+    //       },
+    //     });
+    //   };
+    //   onPlayerReady = (e) => {
+    //     player.playVideo();
+    //   };
   }
   showMore = () => {
     const track = document.getElementById('track');
@@ -44,6 +59,7 @@ class GamePageSlider extends Component {
   dotHandler = (id) => {
     this.setState({currentSlide: id});
   };
+
   render() {
     // console.log(
     //   this.state.currentGame.map((b) => {
@@ -93,9 +109,17 @@ class GamePageSlider extends Component {
                     }
                   >
                     <iframe
-                      src={'https://www.youtube.com/embed/' + video + '?rel=0'}
+                      src={
+                        id === this.state.currentSlide - 1
+                          ? 'https://www.youtube.com/embed/' +
+                            video +
+                            '?autoplay=1&rel=0&mute=1'
+                          : 'https://www.youtube.com/embed/' + video + '?rel=0'
+                      }
                       allowFullScreen
                       frameBorder="0"
+                      id={`video${id}`}
+                      allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"
                     ></iframe>
                   </div>
                 );
@@ -126,15 +150,17 @@ class GamePageSlider extends Component {
                 className="fas fa-arrow-right"
               ></i>
             </span>
-            <span
-              className="game-page-slider__show-more"
-              id="show-more"
-              onClick={this.showMore}
-            >
-              {this.state.showMore
-                ? `Show Less`
-                : `Show ${this.props.totalSlides - 1} More`}
-            </span>
+            {this.state.totalSlides === 1 ? null : (
+              <span
+                className="game-page-slider__show-more"
+                id="show-more"
+                onClick={this.showMore}
+              >
+                {this.state.showMore
+                  ? `Show Less`
+                  : `Show (${this.props.totalSlides - 1}) More`}
+              </span>
+            )}
           </div>
           <div className="game-page-slider__dots">
             {this.props.sliderVideos.map((v, index) => {
