@@ -96,6 +96,11 @@
     width: var(--bigger-container);
   }
 }
+@media screen and (max-width: 1400px) {
+  .free-limited {
+    width: var(--tablet-container);
+  }
+}
 @media screen and (max-width: 960px) {
   .free-limited {
     width: var(--mobile-container);

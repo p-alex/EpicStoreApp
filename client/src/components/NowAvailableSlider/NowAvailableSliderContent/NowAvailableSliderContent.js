@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 class NowAvailableSliderContent extends Component {
-  render() {
+  render () {
     return (
       <React.Fragment>
         <div
@@ -15,27 +15,29 @@ class NowAvailableSliderContent extends Component {
           // }}
         >
           <div className="arrow left-arrow" onClick={this.props.leftHandler}>
-            <i className="fas fa-arrow-left"></i>
+            <i className="fas fa-arrow-left" />
           </div>
           <div className="arrow right-arrow" onClick={this.props.rightHandler}>
-            <i className="fas fa-arrow-right"></i>
+            <i className="fas fa-arrow-right" />
           </div>
-          {this.props.sliderData.map((item, id) => {
+          {this.props.sliderData.map ((item, id) => {
             return (
               <React.Fragment key={id}>
-                <img
-                  draggable="false"
-                  className="sliderHorizontalImg"
-                  alt={id}
-                  id="slide"
-                  style={{
-                    transform:
-                      'translateX(-' +
-                      (this.props.slideNumber - 1) * 100 +
-                      '%)',
-                  }}
-                  src={item.imgURL}
-                />
+                <div className="slider-newgames__image-container">
+                  <img
+                    draggable="false"
+                    className="sliderHorizontalImg"
+                    alt={id}
+                    id="slide"
+                    style={{
+                      transform: 'translateX(-' +
+                        (this.props.slideNumber - 1) * 100 +
+                        '%)',
+                    }}
+                    src={item.imgURL}
+                  />
+                </div>
+
               </React.Fragment>
             );
           })}
@@ -48,12 +50,12 @@ class NowAvailableSliderContent extends Component {
                 <p onClick={this.props.rightHandler}>{'>'}</p>
               </div>
               <div className="slider-newgames__dots">
-                {this.props.sliderData.map((item, id) => {
+                {this.props.sliderData.map ((item, id) => {
                   return (
                     <div
                       className="dot-container"
                       key={id}
-                      onClick={() => this.props.dotHandler(id + 1)}
+                      onClick={() => this.props.dotHandler (id + 1)}
                     >
                       <div
                         className={
@@ -61,7 +63,7 @@ class NowAvailableSliderContent extends Component {
                             ? 'dot dot-active'
                             : 'dot'
                         }
-                      ></div>
+                      />
                     </div>
                   );
                 })}
@@ -74,9 +76,9 @@ class NowAvailableSliderContent extends Component {
                   <h1>{this.props.name}</h1>
                   <p>
                     {this.props.desc.length > 125
-                      ? this.props.desc.slice(
+                      ? this.props.desc.slice (
                           0,
-                          this.props.desc.slice(0, 125).lastIndexOf(' ')
+                          this.props.desc.slice (0, 125).lastIndexOf (' ')
                         ) + '[...]'
                       : this.props.desc}
                   </p>
@@ -90,7 +92,7 @@ class NowAvailableSliderContent extends Component {
               <i
                 style={{position: 'relative', left: '8px', fontSize: '12px'}}
                 className="fas fa-arrow-right"
-              ></i>
+              />
             </a>
           </div>
         </div>
