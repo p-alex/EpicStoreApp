@@ -13,10 +13,18 @@ const gamePageHeader = (props) => {
       </div>
       <div className="game-page-header__buy">
         <div className="buy-price">
-          <h3>{props.price}$</h3>
+          <h3>
+            {props.isFree === 'True' ? (
+              <span>
+                <s style={{color: '#777'}}>{props.price}$</s> Free
+              </span>
+            ) : (
+              props.price + '$'
+            )}
+          </h3>
         </div>
         <div className="buy-btn">
-          <a href="/">Buy Now</a>
+          <a href="/">{props.isFree === 'True' ? 'Get' : 'Buy Now'}</a>
         </div>
         <div className="buy-sale"></div>
       </div>

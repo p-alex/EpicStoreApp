@@ -34,6 +34,7 @@
 .buy-price {
   color: white;
   margin-bottom: 10px;
+  font-weight: normal;
 }
 .buy-btn a {
   padding: 10px 20px;

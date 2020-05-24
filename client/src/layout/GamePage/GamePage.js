@@ -28,6 +28,7 @@ class GamePage extends Component {
     rating: '',
     tags: '',
     platform: '',
+    isFree: '',
   };
   componentDidMount() {
     this.setState({loading: true});
@@ -58,6 +59,7 @@ class GamePage extends Component {
               screenshotsArray: screenshots,
               gameData: gameData,
               gamePrice: d.gamePrice,
+              isFree: d.isFree,
               smallDesc: d.smallDesc,
               aboutGame: d.aboutGame,
               publisher: d.publisher,
@@ -93,6 +95,7 @@ class GamePage extends Component {
                   smallDesc={this.state.smallDesc}
                   gameLogo={this.state.gameLogo}
                   params={this.props.match.params.gameName}
+                  isFree={this.state.isFree}
                 />
                 <GamePageAbout
                   params={this.props.match.params.gameName}
