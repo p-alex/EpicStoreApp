@@ -10,8 +10,8 @@ class EpicStore extends Component {
       <React.Fragment>
         <MainNavigation />
         <NowAvailableSlider />
-        <FreeLimited />
         <NewReleases />
+        <FreeLimited />
       </React.Fragment>
     );
   }

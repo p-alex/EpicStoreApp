@@ -21,7 +21,6 @@ class SortedGamesRow extends Component {
       <section className="game-cards-sorted">
         <div className="game-cards-sorter__header">
           <h3>New Releases</h3>
-          <a href="/">VIEW MORE</a>
         </div>
         <div className="game-cards-sorter__card-container">
           {this.state.newReleases.map((item, id) => {

@@ -4,7 +4,7 @@
   height: auto;
   animation-name: fadein;
   animation-duration: var(--components-fadein-duration);
-  background: #111;
+  background: var(--primary-background);
 }
 
 .GamePage-content {
