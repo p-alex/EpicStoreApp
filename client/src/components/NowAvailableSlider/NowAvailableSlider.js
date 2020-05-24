@@ -32,7 +32,7 @@ class NowAvailableSlider extends Component {
   };
   componentDidMount = () => {
     const date = new Date();
-    console.log(this.state.months[date.getMonth()], date.getDate()); // setInterval(this.autoSlide, 12000);
+    // console.log(this.state.months[date.getMonth()], date.getDate()); // setInterval(this.autoSlide, 12000);
     axios.get('/api/slider').then((response) => {
       const list = [];
       response.data.map((d) => {

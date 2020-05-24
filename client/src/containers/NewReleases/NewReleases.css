@@ -1,0 +1,51 @@
+.game-cards-sorted {
+  width: var(--hd-container);
+  margin: auto;
+  position: relative;
+  margin-top: 50px;
+  animation-name: fadein;
+  animation-duration: var(--components-fadein-duration);
+}
+.game-cards-sorter__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+.game-cards-sorter__header h3 {
+  color: white;
+  font-weight: normal;
+}
+.game-cards-sorter__header a {
+  color: white;
+  border: solid #333 1px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.game-cards-sorter__card-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 1921px) {
+  .game-cards-sorted {
+    width: var(--bigger-container);
+  }
+}
+@media screen and (max-width: 1400px) {
+  .game-cards-sorted {
+    width: var(--tablet-container);
+  }
+}
+@media screen and (max-width: 960px) {
+  .game-cards-sorter__card-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .game-cards-sorted {
+    width: var(--mobile-container);
+  }
+}

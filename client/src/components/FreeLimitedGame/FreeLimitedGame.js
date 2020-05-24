@@ -2,13 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 const freeLimitedGame = (props) => {
   return (
-    <Link to={`/product/${props.name.split(' ').join('')}`}>
+    <Link to={`/product/${props.name.replace(':', '').split(' ').join('')}`}>
       <div className="free-limited-item">
         {' '}
         <div className="free-limited-item__image">
           <img
             draggable="false"
-            src={`/images/${props.name.split(' ').join('')}/${props.img}`}
+            src={`/images/${props.name.replace(':', '').split(' ').join('')}/${
+              props.img
+            }`}
           />
           <span>FREE NOW</span>
         </div>

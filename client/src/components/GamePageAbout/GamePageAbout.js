@@ -42,7 +42,7 @@ class GamePageAbout extends Component {
             </div>
             <div className="info-box">
               <p>Release Date</p>
-              <p>{this.props.releaseDate}</p>
+              <p>{this.props.releaseDate.slice(3, 15)}</p>
             </div>
             <div className="info-box">
               <p>Tags</p>

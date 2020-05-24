@@ -11,7 +11,7 @@ class FreeGames extends Component {
     gamesData: [],
   };
   componentDidMount() {
-    axios.get('/api/games').then((response) => {
+    axios.get('/api/freeGames').then((response) => {
       let array = [];
       response.data.map((item) => {
         //console.log(item);

@@ -36,6 +36,11 @@
 .game-page-about_about-game {
   margin-bottom: 10px;
   text-align: left;
+  color: #888;
+}
+.game-page-about_about-game ul {
+  padding-left: 18px;
+  list-style-type: disc;
 }
 .game-page-about_desc-img {
   position: relative;

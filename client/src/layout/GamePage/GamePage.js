@@ -36,12 +36,18 @@ class GamePage extends Component {
     let screenshots = [];
     let gameData = [];
     axios
-      .get('/api/games')
+      .get('/api/allGames')
       .then((response) => {
         response.data.map((d, id) => {
           console.log('data' + d.name);
 
-          if (d.name.split(' ').join('') === this.props.match.params.gameName) {
+          if (
+            d.name.replace(':', '').split(' ').join('') ===
+            this.props.match.params.gameName
+              .replace(':', '')
+              .split(' ')
+              .join('')
+          ) {
             sliderImages = d.imagesURL;
             sliderVideos = d.videoURL.split(',');
             screenshots = d.screenshotsURL;

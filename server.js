@@ -6,7 +6,9 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const slider = require('./routes/api/slider');
-const games = require('./routes/api/games');
+const freeGames = require('./routes/api/freeGames');
+const newReleases = require('./routes/api/newReleases');
+const allGames = require('./routes/api/allGames');
 
 const app = express();
 app.listen(process.env.PORT || 5000, () => {
@@ -26,8 +28,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 app.use(bodyParser.urlencoded({extended: true}));
-app.use('/api/games', games);
+app.use('/api/freeGames', freeGames);
 app.use('/api/slider', slider);
+app.use('/api/newReleases', newReleases);
+app.use('/api/allGames', allGames);
 
 app.get('/addGame', (req, res) => {
   res.render('addGame');
@@ -39,13 +43,17 @@ app.post('/addGame', (req, res) => {
     destination: (req, file, cb) => {
       fs.mkdir(
         __dirname +
-          `/client/public/images/${req.body.gameName.split(' ').join('')}`,
+          `/client/public/images/${req.body.gameName
+            .replace(':', '')
+            .split(' ')
+            .join('')}`,
         (err) => {
           if (err) {
             console.log('err');
           } else {
             console.log(
               `Created a new directory: ${req.body.gameName
+                .replace(':', '')
                 .split(' ')
                 .join('')}`
             );
@@ -56,13 +64,16 @@ app.post('/addGame', (req, res) => {
       cb(
         null,
         __dirname +
-          `/client/public/images/${req.body.gameName.split(' ').join('')}`
+          `/client/public/images/${req.body.gameName
+            .replace(':', '')
+            .split(' ')
+            .join('')}`
       );
     },
     filename: (req, file, cb) => {
       cb(
         null,
-        req.body.gameName.replace(':-', '').split(' ').join('') +
+        req.body.gameName.replace(':', '').split(' ').join('') +
           '_' +
           Date.now() +
           path.extname(file.originalname)
