@@ -20,7 +20,7 @@ const gameCard = (props) => {
         <p className="game-card__developer">{props.developer}</p>
         {props.isFree === 'True' ? (
           <p className="game-card__price">
-            <s style={{color: 'grey'}}>{props.price}$</s> Free
+            <s style={{color: 'grey'}}>{props.price}$</s> Free until [date]
           </p>
         ) : (
           <p className="game-card__price">{props.price}$</p>

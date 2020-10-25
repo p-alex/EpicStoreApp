@@ -9,14 +9,17 @@ class GamePageAbout extends Component {
   state = {
     showMore: false,
   };
+  componentDidMount () {
+    console.log (Date.now ());
+  }
   showMoreHandler = () => {
     if (!this.state.showMore) {
-      this.setState({showMore: true});
+      this.setState ({showMore: true});
     } else {
-      this.setState({showMore: false});
+      this.setState ({showMore: false});
     }
   };
-  render() {
+  render () {
     return (
       <section className="game-page-about">
         <div className="game-page-about_section-title">
@@ -42,7 +45,7 @@ class GamePageAbout extends Component {
             </div>
             <div className="info-box">
               <p>Release Date</p>
-              <p>{this.props.releaseDate.slice(3, 15)}</p>
+              <p>{new Date (this.props.releaseDate).toLocaleDateString ()}</p>
             </div>
             <div className="info-box">
               <p>Tags</p>
@@ -58,9 +61,9 @@ class GamePageAbout extends Component {
             </div>
           </div>
           <p className="game-page-about_about-game">
-            {ReactHtmlParser(this.props.aboutGame)}
+            {ReactHtmlParser (this.props.aboutGame)}
           </p>
-          {this.props.screenshots.map((s, id) => {
+          {this.props.screenshots.map ((s, id) => {
             if (window.innerWidth <= 960) {
               return (
                 <img
@@ -122,11 +125,14 @@ class GamePageAbout extends Component {
               }
             }
           })}
-          {this.props.screenshots.length >= 4 ? (
-            <span className="desc-img_show-more" onClick={this.showMoreHandler}>
-              {this.state.showMore ? 'Show Less' : 'Show More'}
-            </span>
-          ) : null}
+          {this.props.screenshots.length >= 4
+            ? <span
+                className="desc-img_show-more"
+                onClick={this.showMoreHandler}
+              >
+                {this.state.showMore ? 'Show Less' : 'Show More'}
+              </span>
+            : null}
         </div>
       </section>
     );

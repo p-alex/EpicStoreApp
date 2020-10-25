@@ -1,26 +1,13 @@
 import React, {Component} from 'react';
 import './NowAvailableSlider.css';
 import axios from 'axios';
-import NowAvailableSliderContent from './NowAvailableSliderContent/NowAvailableSliderContent';
+import NowAvailableSliderContent
+  from './NowAvailableSliderContent/NowAvailableSliderContent';
 class NowAvailableSlider extends Component {
   state = {
     sliderData: [],
     sliderGames: [],
     slideNumber: 1,
-    months: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ],
   };
   autoSlide = () => {
     let counter = this.state.slideNumber;
@@ -28,17 +15,17 @@ class NowAvailableSlider extends Component {
     if (counter > this.state.sliderGames.length) {
       counter = 1;
     }
-    this.setState({slideNumber: counter});
+    this.setState ({slideNumber: counter});
   };
   componentDidMount = () => {
-    const date = new Date();
-    // console.log(this.state.months[date.getMonth()], date.getDate()); // setInterval(this.autoSlide, 12000);
-    axios.get('/api/slider').then((response) => {
+    const date = new Date ();
+
+    axios.get ('/api/slider').then (response => {
       const list = [];
-      response.data.map((d) => {
-        list.push(d.name);
+      response.data.map (d => {
+        list.push (d.name);
       });
-      this.setState({sliderData: response.data, sliderGames: list});
+      this.setState ({sliderData: response.data, sliderGames: list});
     });
   };
 
@@ -47,27 +34,27 @@ class NowAvailableSlider extends Component {
     if (subtract < 1) {
       subtract = this.state.sliderData.length;
     }
-    this.setState({slideNumber: subtract});
+    this.setState ({slideNumber: subtract});
   };
-  dotHandler = (id) => {
-    this.setState({slideNumber: id});
+  dotHandler = id => {
+    this.setState ({slideNumber: id});
   };
   rightArrowHandler = () => {
     let add = this.state.slideNumber + 1;
     if (add > this.state.sliderData.length) {
       add = 1;
     }
-    this.setState({slideNumber: add});
+    this.setState ({slideNumber: add});
   };
 
-  render() {
+  render () {
     let currentGame = this.state.sliderGames[this.state.slideNumber - 1];
 
     return (
       <section className="slider-newgames">
         {this.state.sliderData
-          .filter((i) => i.name === currentGame)
-          .map((item, id) => {
+          .filter (i => i.name === currentGame)
+          .map ((item, id) => {
             return (
               <NowAvailableSliderContent
                 status={item.status}

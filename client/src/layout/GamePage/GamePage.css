@@ -5,21 +5,25 @@
   animation-name: fadein;
   animation-duration: var(--components-fadein-duration);
   background: var(--primary-background);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .GamePage-content {
-  width: 70%;
+  width: 75%;
   margin: auto;
+}
+@media screen and (min-width: 2561px) {
+  .GamePage-wrapper {
+    width: 2400px;
+  }
 }
 @media screen and (min-width: 1921px) {
   .GamePage-content {
-    width: 60%;
+    width: 65%;
   }
   .GamePage-wrapper {
-    width: 2200px;
-    overflow: hidden;
-    margin: auto;
-    margin-top: var(--main-nav-height);
+    width: 95%;
   }
 }
 @media screen and (max-width: 1400px) {

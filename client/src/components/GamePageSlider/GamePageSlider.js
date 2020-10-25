@@ -7,6 +7,7 @@ class GamePageSlider extends Component {
     currentSlide: 1,
     showMore: false,
   };
+  componentDidMount () {}
   showMore = () => {
     const track = document.getElementById ('track');
     if (this.state.showMore) {

@@ -1,5 +1,5 @@
 .game-cards-sorted {
-  width: var(--hd-container);
+  width: 100%;
   margin: auto;
   position: relative;
   margin-top: 50px;

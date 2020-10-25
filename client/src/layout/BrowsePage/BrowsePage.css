@@ -1,0 +1,35 @@
+.browse-games_container{
+    display: flex;
+}
+.browse_games{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 15px;
+    margin-top: 150px;
+    position: relative;
+}
+
+.games_container{
+    width: 100%;
+    margin-right: 20px;
+}
+.games_container:last-child{
+    margin-right: 0;
+}
+
+.games_container img {
+    width: 100%;
+}
+
+@media screen and (max-width:1500px){
+    .browse_games{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media screen and (max-width:1100px){
+    .browse_games{
+        grid-template-columns: repeat(3,1fr);
+    }
+}

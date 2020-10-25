@@ -44,7 +44,6 @@ const mainNavigationDesktop = (props) => {
                 src="/images/Icons/global.png"
                 alt="language"
                 onClick={(e) => e.preventDefault()}
-                style={{position: 'relative', top: '3px'}}
               />
             </a>
             <ul className="nav__right__dropdown">

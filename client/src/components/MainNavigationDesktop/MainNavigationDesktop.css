@@ -55,12 +55,13 @@
 }
 .nav__right__links {
   display: flex;
+  align-items: center;
 }
 .nav__right__links li {
   display: flex;
   align-items: center;
   position: relative;
-  padding: 20px 0;
+  padding:10px 0;
   flex-direction: column;
 }
 .nav__right__links li img {
@@ -88,7 +89,7 @@
 .nav__right__links li ul {
   position: absolute;
   width: 200px;
-  top: 70px;
+  top: 58px;
   display: none;
   text-align: center;
   z-index: 10;
