@@ -139,6 +139,7 @@ class GamePageSlider extends Component {
                 <div
                   className="game-page-slider__dot-container"
                   onClick={() => this.dotHandler (index + 1)}
+                  key={index}
                 >
                   <div
                     className={
@@ -158,6 +159,7 @@ class GamePageSlider extends Component {
                     this.dotHandler (
                       index + this.props.sliderVideos.length + 1
                     )}
+                    key={index}
                 >
                   <div
                     className={

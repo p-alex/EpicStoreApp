@@ -1,7 +1,6 @@
 import React from 'react';
 import './GamePageHeader.css';
 const gamePageHeader = (props) => {
-  console.log(props);
 
   return (
     <section className="game-page-header">

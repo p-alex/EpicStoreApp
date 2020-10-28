@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Layout from '../Layout';
 import axios from 'axios';
+import {connect} from 'react-redux';
 import './GamePage.css';
 import ReactHtmlParser, {
   processNodes,
@@ -31,6 +32,7 @@ class GamePage extends Component {
     isFree: '',
   };
   componentDidMount () {
+    this.props.isBrowsePage('gamepage');
     this.setState ({loading: true});
     let sliderImages = [];
     let sliderVideos = [];
@@ -40,8 +42,6 @@ class GamePage extends Component {
       .get ('/api/allGames')
       .then (response => {
         response.data.map ((d, id) => {
-          console.log ('data' + d.name);
-
           if (
             d.name.replace (':', '').split (' ').join ('') ===
             this.props.match.params.gameName
@@ -117,5 +117,13 @@ class GamePage extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return (null)
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    isBrowsePage: (page) => dispatch({type:'isBrowsePage',payload:{page}})
+  }
+}
 
-export default GamePage;
+export default connect(mapStateToProps, mapDispatchToProps)(GamePage);

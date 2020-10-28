@@ -9,9 +9,6 @@ class GamePageAbout extends Component {
   state = {
     showMore: false,
   };
-  componentDidMount () {
-    console.log (Date.now ());
-  }
   showMoreHandler = () => {
     if (!this.state.showMore) {
       this.setState ({showMore: true});
@@ -69,6 +66,7 @@ class GamePageAbout extends Component {
                 <img
                   src={`/images/${this.props.params}/${s}`}
                   style={{width: '100%'}}
+                  key={id}
                 />
               );
             } else {
@@ -79,6 +77,7 @@ class GamePageAbout extends Component {
                       <img
                         src={`/images/${this.props.params}/${s}`}
                         style={{width: '100%'}}
+                        key={id}
                       />
                     );
                   } else {
@@ -105,6 +104,7 @@ class GamePageAbout extends Component {
                     <img
                       src={`/images/${this.props.params}/${s}`}
                       style={{width: '100%'}}
+                      key={id}
                     />
                   );
                 } else {
@@ -112,6 +112,7 @@ class GamePageAbout extends Component {
                     <img
                       src={`/images/${this.props.params}/${s}`}
                       style={{width: '50%', padding: '4px'}}
+                      key={id}
                     />
                   );
                 }
@@ -120,6 +121,7 @@ class GamePageAbout extends Component {
                   <img
                     src={`/images/${this.props.params}/${s}`}
                     style={{width: '100%'}}
+                    key={id}
                   />
                 );
               }

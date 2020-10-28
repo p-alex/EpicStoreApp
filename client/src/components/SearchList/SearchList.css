@@ -1,0 +1,22 @@
+.search-list {
+  position: absolute;
+  color: white;
+  z-index: 100;
+  top: 40px;
+  background: var(--tertiary-background);
+  box-shadow: 0 0 20px #111;
+  padding: 10px;
+}
+
+.search-list ul {
+  list-style: none;
+}
+
+.search-list a {
+  color: white;
+  font-size: 12px;
+}
+
+.search-list a:hover {
+  text-decoration: underline;
+}

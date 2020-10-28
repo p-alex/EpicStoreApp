@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import './FreeLimited.css';
 import FreeLimitedGame from '../../components/FreeLimitedGame/FreeLimitedGame';
 //import ReactHtmlParser , {processNodes, convertNodeToElement, htmlparser2} from 'react-html-parser';
@@ -51,5 +52,7 @@ class FreeGames extends Component {
     );
   }
 }
+
+
 
 export default FreeGames;

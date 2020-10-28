@@ -33,3 +33,9 @@
         grid-template-columns: repeat(3,1fr);
     }
 }
+
+@media screen and (max-width:800px){
+    .browse_games{
+        grid-template-columns: repeat(2,1fr);
+    }
+}

@@ -1,10 +1,41 @@
 const initialState = {
   isBurgerOpen: false,
   isLangOpen: false,
+  searchQuery:"",
+  isBrowsePage:false
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'searchQuery':
+      return {
+        ...state,
+        searchQuery:action.payload
+      }
+      case 'setSearchQueryToEmpty':
+        return {
+          ...state,
+          searchQuery:''
+      }
+      case 'isBrowsePage':
+        if(action.payload.page === 'browse'){
+          return {
+            ...state,
+            isBrowsePage: true,
+            searchQuery:''
+          }
+        }else if(action.payload.page === 'discover'){
+          return {
+            ...state,
+            isBrowsePage: false,
+            searchQuery:''
+          }
+        }
+        return {
+          ...state,
+          isBrowsePage:false,
+          searchQuery:''
+        }
     case 'BURGER':
       if (state.isBurgerOpen) {
         return {
