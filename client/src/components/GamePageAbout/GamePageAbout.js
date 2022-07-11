@@ -1,22 +1,18 @@
-import React, {Component} from 'react';
-import './GamePageAbout.css';
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-  htmlparser2,
-} from 'react-html-parser';
+import React, { Component } from "react";
+import "./GamePageAbout.css";
+import ReactHtmlParser from "react-html-parser";
 class GamePageAbout extends Component {
   state = {
     showMore: false,
   };
   showMoreHandler = () => {
     if (!this.state.showMore) {
-      this.setState ({showMore: true});
+      this.setState({ showMore: true });
     } else {
-      this.setState ({showMore: false});
+      this.setState({ showMore: false });
     }
   };
-  render () {
+  render() {
     return (
       <section className="game-page-about">
         <div className="game-page-about_section-title">
@@ -27,8 +23,8 @@ class GamePageAbout extends Component {
           id="descImg"
           style={
             !this.state.showMore && this.props.screenshots.length >= 4
-              ? {height: '600px'}
-              : {height: 'auto', overflow: 'auto'}
+              ? { height: "600px" }
+              : { height: "auto", overflow: "auto" }
           }
         >
           <div className="game-page-about_info">
@@ -42,7 +38,7 @@ class GamePageAbout extends Component {
             </div>
             <div className="info-box">
               <p>Release Date</p>
-              <p>{new Date (this.props.releaseDate).toLocaleDateString ()}</p>
+              <p>{new Date(this.props.releaseDate).toLocaleDateString()}</p>
             </div>
             <div className="info-box">
               <p>Tags</p>
@@ -58,14 +54,14 @@ class GamePageAbout extends Component {
             </div>
           </div>
           <p className="game-page-about_about-game">
-            {ReactHtmlParser (this.props.aboutGame)}
+            {ReactHtmlParser(this.props.aboutGame)}
           </p>
-          {this.props.screenshots.map ((s, id) => {
+          {this.props.screenshots.map((s, id) => {
             if (window.innerWidth <= 960) {
               return (
                 <img
                   src={`/images/${this.props.params}/${s}`}
-                  style={{width: '100%'}}
+                  style={{ width: "100%" }}
                   key={id}
                 />
               );
@@ -76,7 +72,7 @@ class GamePageAbout extends Component {
                     return (
                       <img
                         src={`/images/${this.props.params}/${s}`}
-                        style={{width: '100%'}}
+                        style={{ width: "100%" }}
                         key={id}
                       />
                     );
@@ -95,7 +91,7 @@ class GamePageAbout extends Component {
                     return (
                       <img
                         src={`/images/${this.props.params}/${s}`}
-                        style={{width: '33%', padding: '4px'}}
+                        style={{ width: "33%", padding: "4px" }}
                       />
                     );
                   }
@@ -103,7 +99,7 @@ class GamePageAbout extends Component {
                   return (
                     <img
                       src={`/images/${this.props.params}/${s}`}
-                      style={{width: '100%'}}
+                      style={{ width: "100%" }}
                       key={id}
                     />
                   );
@@ -111,7 +107,7 @@ class GamePageAbout extends Component {
                   return (
                     <img
                       src={`/images/${this.props.params}/${s}`}
-                      style={{width: '50%', padding: '4px'}}
+                      style={{ width: "50%", padding: "4px" }}
                       key={id}
                     />
                   );
@@ -120,21 +116,18 @@ class GamePageAbout extends Component {
                 return (
                   <img
                     src={`/images/${this.props.params}/${s}`}
-                    style={{width: '100%'}}
+                    style={{ width: "100%" }}
                     key={id}
                   />
                 );
               }
             }
           })}
-          {this.props.screenshots.length >= 4
-            ? <span
-                className="desc-img_show-more"
-                onClick={this.showMoreHandler}
-              >
-                {this.state.showMore ? 'Show Less' : 'Show More'}
-              </span>
-            : null}
+          {this.props.screenshots.length >= 4 ? (
+            <span className="desc-img_show-more" onClick={this.showMoreHandler}>
+              {this.state.showMore ? "Show Less" : "Show More"}
+            </span>
+          ) : null}
         </div>
       </section>
     );
